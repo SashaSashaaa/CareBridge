@@ -1,0 +1,13 @@
+:root{
+    --light-color: #F6F6F6;
+    --black-color: #1f1f1f;
+    --main-dark-color: #3e7929;
+    --main-color: #639C50;
+    --shadow-color: 0px 4px 8px rgba(46, 46, 46, 0.355);
+    --font-main: 'open-sans', sans-serif;
+    --linear-main: linear-gradient(0.4turn, rgba(68, 238, 136, 0.745), #3e7929f7);
+    --linear-main-opacity: linear-gradient(0.4turn, rgba(68, 238, 136, 0.993), #3e7929fd);
+
+    --day-color: #eccc13;
+    --night-color: #2D40B8;
+}

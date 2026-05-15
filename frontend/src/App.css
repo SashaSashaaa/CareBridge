@@ -1,0 +1,45 @@
+@import url(colors.css);
+
+header{
+  margin: 0;
+  font-size: 32px;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+nav{
+  background-color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  border-radius: 30px;
+  gap: 30px;
+  width: 80%;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  gap: 140px;
+}
+
+a {
+  color: var(--light-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--black-color);
+  transition: color 0.2s ease-in-out;
+  text-decoration: underline;
+}
+
+img {
+  width: 200px;
+  margin-left: 50px;
+}
+

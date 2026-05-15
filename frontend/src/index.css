@@ -1,0 +1,55 @@
+@import url(colors.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+header {
+  margin-bottom: 160px;
+}
+
+html {
+  --site-bg: url("/bg1_lightMode.png");
+}
+
+.dark {
+  --site-bg: url("/bg1_darkMode.png");
+}
+
+body {
+  font-family: var(--font-main);
+  min-height: 100vh;
+  position: relative;
+  background: transparent;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background-image: var(--site-bg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+@media screen and (min-width: 600px) {
+  html { 
+    font-size: 15px; 
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body { 
+    font-size: 20px; 
+  }
+}
