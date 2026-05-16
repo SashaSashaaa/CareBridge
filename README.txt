@@ -10,7 +10,7 @@
 	5. createdb -U [username] carebridge
 	6. psql -U [username] -d carebridge -f carebridge_dump1.sql
 
-		Зайдіть у файл за шляхом backend/server/.env і за інструкціями знайдіть і вставте ваші API ключі
+		Зайдіть у файл за шляхом backend/server/.env copy і за інструкціями знайдіть і вставте ваші API ключі
 
 		Зайдіть у файл за шляхом backend/server/server/settings.py і пролистайте до 127 рядка. 
 	  Заповніть поля відносно вашого акаунта PostgreSQL. Наприклад:
