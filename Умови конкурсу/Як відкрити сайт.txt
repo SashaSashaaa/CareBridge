@@ -1,0 +1,18 @@
+	Щоб сайт почав працювати, потрібно:
+
+
+
+Відкрити папку Backend в терміналі або редакторі коду(і створити термінал) :
+	Написати команди:
+1. py -m venv venv (для Windows)  ||  python3 -m venv venv (для Macos)
+2. .\venv\Scripts\activate (для Windows)  ||  source ./venv/bin/activate (для Macos)
+3. pip install -r req.txt
+4. cd ./server
+5. py manage.py runserver (для Windows)  ||  python3 manage.py runserver (для Macos)
+
+
+
+Відкрити папку Frontend в терміналі або редакторі коду(і створити термінал) :
+	Написати команди:
+1. npm i
+2. npm run dev

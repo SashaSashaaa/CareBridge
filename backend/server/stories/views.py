@@ -11,6 +11,10 @@ from rest_framework.generics import (
 )
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from django.shortcuts import get_object_or_404
 
 class OneStoryView(RetrieveAPIView):
     queryset = Story.objects.all()
@@ -67,3 +71,20 @@ class MyStoriesView(ListAPIView):
 
     def get_queryset(self):
         return Story.objects.filter(user=self.request.user).order_by("-created_at")
+
+class StoryLikeView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, pk):
+        story = get_object_or_404(Story, pk=pk)
+        if request.user in story.likes.all():
+            story.likes.remove(request.user)
+            is_liked = False
+        else:
+            story.likes.add(request.user)
+            is_liked = True
+            
+        return Response({
+            "is_liked": is_liked,
+            "likes_count": story.likes.count()
+        }, status=status.HTTP_200_OK)

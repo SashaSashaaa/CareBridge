@@ -156,6 +156,15 @@ export const storyApi = createApi({
         { type: 'MyStory', id: 'LIST' },
       ],
     }),
+    likeStory: builder.mutation({
+      query: (id) => ({
+        url: `${id}/like/`,
+        method: 'POST',
+      }),
+      invalidatesTags: (result, error, id) => [
+        { type: 'Story', id },
+      ],
+    }),
   }),
 })
 
@@ -166,4 +175,5 @@ export const {
   useCreateStoryMutation,
   useUpdateStoryMutation,
   useDeleteStoryMutation,
+  useLikeStoryMutation, 
 } = storyApi

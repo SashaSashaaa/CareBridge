@@ -457,6 +457,13 @@ const resources = {
 
       quiz: "Вікторина",
       gameTopBar: "Гра",
+      login_to_like: "Будь ласка, увійдіть, щоб поставити лайк.",
+      confirm_delete: "Ви точно хочете видалити цю історію?",
+      author: "Автор",
+      no_description: "Опис відсутній",
+      likes: "Лайки",
+      edit: "Редагувати",
+      delete: "Видалити",
     },
   },
   en: {
@@ -910,6 +917,13 @@ const resources = {
 
       quiz: "Quiz",
       gameTopBar: "Game",
+      login_to_like: "Please log in to like this story.",
+      confirm_delete: "Are you sure you want to delete this story?",
+      author: "Author",
+      no_description: "No description available",
+      likes: "Likes",
+      edit: "Edit",
+      delete: "Delete",
     },
   },
 };

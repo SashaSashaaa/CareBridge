@@ -6,6 +6,7 @@ from .views import (
     StoryUpdateView,
     StoryDeleteView,
     MyStoriesView,
+    StoryLikeView,
 )
 
 urlpatterns = [
@@ -15,5 +16,6 @@ urlpatterns = [
     path('create/', StoryCreateView.as_view(), name='create-story'),
     path('<uuid:pk>/update/', StoryUpdateView.as_view(), name='update-story'),
     path('delete/<uuid:pk>/', StoryDeleteView.as_view(), name='delete-story'),
+    path('<uuid:pk>/like/', StoryLikeView.as_view(), name='like-story'),
     path('<uuid:pk>/', OneStoryView.as_view()),
 ]

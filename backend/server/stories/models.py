@@ -13,6 +13,7 @@ class Story(models.Model):
     image = models.ImageField(upload_to='stories', null=True, blank=True)
     thumbnail = ImageSpecField(source='image', processors=[ResizeToFit(400, 400)], format='JPEG', options={'quality': 60})
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='stories', null=True, blank=True)
+    likes = models.ManyToManyField(User, related_name='liked_stories', blank=True)
 
     class Meta:
         verbose_name = "Історія добра"

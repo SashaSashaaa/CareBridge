@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router";
 import Navbar from "../components/Navbar";
+import SupportButton from "../components/SupportBtn/index";
 
 export default function MainLayout() {
   const location = useLocation();
@@ -17,6 +18,9 @@ export default function MainLayout() {
         <Outlet />
       </main>
       <footer></footer>
+      
+      {!isGame && <SupportButton />}
+      {/* <SupportButton /> */}
     </>
   );
 }

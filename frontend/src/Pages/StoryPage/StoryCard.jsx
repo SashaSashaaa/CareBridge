@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Heading, Image, Text, Flex, Button } from "@chakra-ui/react";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useColorMode } from "../../components/ui/color-mode";
-import { useDeleteStoryMutation } from "../../Store/services/profile";
+import { useDeleteStoryMutation, useLikeStoryMutation } from "../../Store/services/storyApi"; 
 import { useGetUserQuery } from "../../Store/services/user";
 import { useTranslation } from "react-i18next";
 
@@ -14,22 +15,43 @@ export default function StoryCard({ data: story }) {
   const token = localStorage.getItem("access");
 
   const [deleteStory] = useDeleteStoryMutation();
+  const [likeStory] = useLikeStoryMutation(); 
 
   const { data: currentUser } = useGetUserQuery(undefined, {
     skip: !token,
   });
+
+  const [isLiked, setIsLiked] = useState(story?.is_liked || false);
+  const [likesCount, setLikesCount] = useState(story?.likes_count || 0);
 
   const isOwner =
     currentUser?.id && story?.user?.id
       ? currentUser.id === story.user.id
       : false;
 
+  const handleLike = async (e) => {
+    e.stopPropagation();
+
+    if (!token) {
+      window.alert(t("login_to_like"));
+      return;
+    }
+
+    setIsLiked((prev) => !prev);
+    setLikesCount((prev) => (isLiked ? prev - 1 : prev + 1));
+
+    try {
+      await likeStory(story.id).unwrap();
+    } catch (error) {
+      setIsLiked(isLiked);
+      setLikesCount(likesCount);
+    }
+  };
+
   const handleDelete = async (e) => {
     e.stopPropagation();
 
-    const confirmDelete = window.confirm(
-      "Ви точно хочете видалити цю історію?",
-    );
+    const confirmDelete = window.confirm(t("confirm_delete"));
 
     if (!confirmDelete) return;
 
@@ -68,15 +90,28 @@ export default function StoryCard({ data: story }) {
       />
 
       <Text fontSize="sm" color="gray.500" mb={2}>
-        Автор: {story?.user?.first_name || story?.user?.username}{" "}
+        {t("author")}: {story?.user?.first_name || story?.user?.username}{" "}
         {story?.user?.last_name}
       </Text>
 
-      <Text fontSize="lg" whiteSpace="normal" overflow="visible">
+      <Text fontSize="lg" whiteSpace="normal" overflow="visible" mb={4}>
         {story?.description
           ? story.description.replace(/<[^>]*>/g, "")
-          : "Опис відсутній"}
+          : t("no_description")}
       </Text>
+
+      <Flex align="center" justify="space-between" mt={2}>
+        <Button
+          onClick={handleLike}
+          variant={isLiked ? "solid" : "outline"}
+          colorScheme="red"
+          borderRadius="xl"
+          size="sm"
+          leftIcon={<span>{isLiked ? <FaHeart/> : <FaRegHeart/>}</span>}
+        >
+          {likesCount} {t("likes")}
+        </Button>
+      </Flex>
 
       {isOwner && (
         <Flex gap={3} mt={5}>
