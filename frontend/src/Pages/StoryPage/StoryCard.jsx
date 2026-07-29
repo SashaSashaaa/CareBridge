@@ -3,7 +3,7 @@ import { Box, Heading, Image, Text, Flex, Button } from "@chakra-ui/react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useColorMode } from "../../components/ui/color-mode";
-import { useDeleteStoryMutation, useLikeStoryMutation } from "../../Store/services/storyApi"; 
+import { useDeleteStoryMutation, useLikeStoryMutation } from "../../Store/services/story"; 
 import { useGetUserQuery } from "../../Store/services/user";
 import { useTranslation } from "react-i18next";
 
@@ -103,13 +103,12 @@ export default function StoryCard({ data: story }) {
       <Flex align="center" justify="space-between" mt={2}>
         <Button
           onClick={handleLike}
-          variant={isLiked ? "solid" : "outline"}
-          colorScheme="red"
-          borderRadius="xl"
-          size="sm"
-          leftIcon={<span>{isLiked ? <FaHeart/> : <FaRegHeart/>}</span>}
+          variant={isLiked ? "" : "outline"}
+          color="red"
+          borderRadius="50%"
+          size="xl"
         >
-          {likesCount} {t("likes")}
+          <span>{isLiked ? <FaHeart/> : <FaRegHeart/>}</span> {likesCount}
         </Button>
       </Flex>
 

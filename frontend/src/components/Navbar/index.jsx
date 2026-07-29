@@ -406,7 +406,6 @@ export default function Navbar() {
                   fontSize="lg"
                   _hover={{
                     textDecoration: "underline",
-                    bg: colorMode === "dark" ? "gray.600" : "gray.200",
                   }}
                   bg={colorMode === "dark" ? "gray.800" : "gray.400"}
                   color="white"
