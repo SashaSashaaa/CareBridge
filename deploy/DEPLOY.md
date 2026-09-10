@@ -299,14 +299,50 @@ curl -I https://carebridge.cc        # 200 OK
 
 ## 13. Оновлення після змін у коді
 
+### Змінили бекенд (Python)
+
+Спочатку коміт і пуш у GitHub, далі на сервері одна команда:
+
 ```bash
-cd /srv/carebridge
-sudo -u carebridge git pull
-sudo -u carebridge backend/venv/bin/pip install -r backend/req.txt
-cd backend/server
-sudo -u carebridge ../venv/bin/python manage.py migrate
-sudo -u carebridge ../venv/bin/python manage.py collectstatic --noinput
-systemctl restart carebridge
+ssh carebridge
+```
+
+```bash
+bash /srv/carebridge/deploy/update.sh
+```
+
+Скрипт сам зробить `git pull`, довстановить залежності, застосує міграції,
+збере статику, перезапустить службу і перевірить, що сайт відповідає.
+Якщо щось піде не так — покаже логи і зупиниться з помилкою.
+
+### Змінили фронтенд (React)
+
+Сервер тут ні до чого: збірка робиться **на Mac**, туди їде вже готовий `dist`.
+
+```bash
+cd frontend && npm run build
+```
+
+```bash
+rsync -avz --delete frontend/dist/ carebridge:/srv/carebridge/frontend/dist/
+```
+
+Перезапускати нічого не треба — nginx роздає нові файли одразу.
+
+### Змінили і те, й те
+
+Спочатку фронтенд (обидві команди на Mac), потім бекенд (`update.sh` на сервері).
+
+### Якщо щось зламалось
+
+```bash
+journalctl -u carebridge -n 50 --no-pager
+```
+
+Відкотитись на попередній коміт:
+
+```bash
+cd /srv/carebridge && sudo -u carebridge git reset --hard HEAD~1 && bash deploy/update.sh
 ```
 
 ---
