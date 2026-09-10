@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
 
   build: {
-    outDir: "../Backend/server/static/dist",
+    outDir: "dist",
     emptyOutDir: true,
   },
 

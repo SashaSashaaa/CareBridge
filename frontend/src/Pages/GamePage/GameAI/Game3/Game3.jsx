@@ -45,7 +45,7 @@ export default function FarmingGame({ points, setPoints }) {
 
     try {
       const res = await fetch(
-        "http://localhost:8000/api/games/round_game_planting/",
+        "/api/games/round_game_planting/",
         {
           method: "POST",
           headers: {

@@ -1,0 +1,34 @@
+; systemd-юніт для CareBridge (Django + Daphne ASGI).
+; Копіюється на сервер у /etc/systemd/system/carebridge.service
+;
+; Ключі та налаштування НЕ дублюються тут — їх читає сам Django
+; з файлу /srv/carebridge/backend/server/.env через load_dotenv().
+
+[Unit]
+Description=CareBridge (Django + Daphne ASGI)
+After=network.target postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=simple
+User=carebridge
+Group=carebridge
+WorkingDirectory=/srv/carebridge/backend/server
+
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/srv/carebridge/backend/venv/bin/daphne \
+    -b 127.0.0.1 \
+    -p 8000 \
+    server.asgi:application
+
+Restart=always
+RestartSec=5
+
+; демон слухає лише на 127.0.0.1 — назовні його пускає тільки nginx
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

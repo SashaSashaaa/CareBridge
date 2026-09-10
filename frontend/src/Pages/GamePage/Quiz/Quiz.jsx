@@ -79,7 +79,7 @@ export default function QuizApp({ points, setPoints, topic }) {
       const quizTopic = topic.topics[nextTopicNum];
 
       const res = await fetch(
-        `http://localhost:8000/api/games/quiz/?topic=${encodeURIComponent(quizTopic)}`,
+        `/api/games/quiz/?topic=${encodeURIComponent(quizTopic)}`,
       );
 
       if (!res.ok) {
@@ -119,7 +119,7 @@ export default function QuizApp({ points, setPoints, topic }) {
 
   async function loadImage(keyword) {
     try {
-      const res = await fetch("http://localhost:8000/api/games/quiz_image/", {
+      const res = await fetch("/api/games/quiz_image/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -10,23 +10,17 @@
 	5. createdb -U [username] carebridge
 	6. psql -U [username] -d carebridge -f carebridge_dump1.sql
 
-		Зайдіть у файл за шляхом backend/server/.env copy і за інструкціями знайдіть і вставте ваші API ключі
+		Зробіть копію файлу backend/server/.env.example з іменем .env :
+	7. cp .env.example .env (для Macos)  ||  copy .env.example .env (для Windows)
 
-		Зайдіть у файл за шляхом backend/server/server/settings.py і пролистайте до 127 рядка. 
-	  Заповніть поля відносно вашого акаунта PostgreSQL. Наприклад:
+		Відкрийте створений .env і за інструкціями всередині вставте ваші API ключі,
+	  а також дані вашого акаунта PostgreSQL (DB_USER, DB_PASSWORD).
 
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": "carebridge",
-            "USER": " імʼя ",         # Введіть ваше ім'я користувача PostgreSQL
-            "PASSWORD": " пароль ",         # Введіть ваш пароль PostgreSQL
-            "HOST": "localhost",
-            "PORT": "5432",
-        }
-    }
+		УВАГА: вписуйте ключі тільки у файл .env — він не потрапляє в git.
+	  У .env.example ключі вписувати НЕ можна, цей файл відстежується git-ом
+	  і будь-який ключ у ньому одразу стане публічним.
 
-	7. py manage.py runserver (для Windows)  ||  python3 manage.py runserver (для Macos)
+	8. py manage.py runserver (для Windows)  ||  python3 manage.py runserver (для Macos)
 
 
 

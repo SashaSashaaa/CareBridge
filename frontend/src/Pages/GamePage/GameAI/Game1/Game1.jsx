@@ -43,7 +43,7 @@ export default function Game1({ points, setPoints }) {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/api/games/round_game1/", {
+      const res = await fetch("/api/games/round_game1/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

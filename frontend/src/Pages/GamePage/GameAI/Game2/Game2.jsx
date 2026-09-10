@@ -44,7 +44,7 @@ export default function TravelGame({ points, setPoints }) {
 
     try {
       const res = await fetch(
-        "http://localhost:8000/api/games/round_game_travel/",
+        "/api/games/round_game_travel/",
         {
           method: "POST",
           headers: {
