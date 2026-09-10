@@ -185,7 +185,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'uk'
 
-TIME_ZONE = 'Europe/Kiev'
+# Канонічна назва зони. Стару 'Europe/Kiev' прибрано з tzdata ще у 2022,
+# на Ubuntu 24.04 вона живе лише в окремому пакеті tzdata-legacy.
+TIME_ZONE = 'Europe/Kyiv'
 
 USE_I18N = True
 
