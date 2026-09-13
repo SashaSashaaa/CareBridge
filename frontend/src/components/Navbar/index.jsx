@@ -118,8 +118,8 @@ export default function Navbar() {
   };
 
   const languages = [
-    { code: "en", label: "ENGLISH", flag: "🇬🇧" },
-    { code: "uk", label: "УКРАЇНСЬКА", flag: "🇺🇦" },
+    { code: "en", label: "ENGLISH", flag: <span class="fi fi-sh"></span> },
+    { code: "uk", label: "УКРАЇНСЬКА", flag: <span class="fi fi-ua"></span> },
   ];
 
   if (isLoading) {
@@ -181,7 +181,7 @@ export default function Navbar() {
                 mt={2}
                 mb={2}
                 _hover={{ textDecoration: "underline" }}
-                bg={colorMode === "dark" ? "#3e7929" : "#639C50"}
+                bg="linear-gradient(0.4turn, #44ee88be, #3e7929f7)"
                 color="white"
                 p={1}
                 borderRadius="5px"
@@ -195,7 +195,7 @@ export default function Navbar() {
                 mt={2}
                 mb={2}
                 _hover={{ textDecoration: "underline" }}
-                bg={colorMode === "dark" ? "#3e7929" : "#639C50"}
+                bg="linear-gradient(0.4turn, #44ee88be, #3e7929f7)"
                 color="white"
                 p={1}
                 borderRadius="5px"
@@ -209,7 +209,7 @@ export default function Navbar() {
                 mt={2}
                 mb={2}
                 _hover={{ textDecoration: "underline" }}
-                bg={colorMode === "dark" ? "gray.800" : "gray.400"}
+                bg="linear-gradient(0.4turn, #44ee88be, #3e7929f7)"
                 color="white"
                 p={1}
                 borderRadius="5px"
@@ -296,7 +296,7 @@ export default function Navbar() {
                   i18n.changeLanguage(lang.code);
                   localStorage.setItem("lang", lang.code);
                 }}
-                bg={colorMode === "dark" ? "gray.800" : "gray.400"}
+                bg="linear-gradient(0.4turn, #44ee88be, #3e7929f7)"
                 color="white"
                 cursor="pointer"
                 p={1}
@@ -335,7 +335,6 @@ export default function Navbar() {
             p={2}
             borderRadius="20px"
             background="rgba(255, 255, 255, 0.06)"
-            backdropFilter="blur(10px)"
             border="1px solid rgba(255, 255, 255, 0.2)"
           >
             {userData && userData.username ? (
@@ -345,7 +344,7 @@ export default function Navbar() {
                   mb={2}
                   fontSize="lg"
                   _hover={{ textDecoration: "underline" }}
-                  bg={colorMode === "dark" ? "gray.800" : "gray.400"}
+                  bg="linear-gradient(0.4turn, #44ee88be, #3e7929f7)"
                   color="white"
                   cursor="pointer"
                   p={1}
@@ -359,7 +358,7 @@ export default function Navbar() {
                   mb={2}
                   fontSize="lg"
                   _hover={{ textDecoration: "underline" }}
-                  bg={colorMode === "dark" ? "gray.800" : "gray.400"}
+                  bg="linear-gradient(0.4turn, #44ee88be, #3e7929f7)"
                   color="white"
                   cursor="pointer"
                   p={1}
@@ -373,7 +372,7 @@ export default function Navbar() {
                   mb={2}
                   fontSize="lg"
                   _hover={{ textDecoration: "underline" }}
-                  bg={colorMode === "dark" ? "gray.800" : "gray.400"}
+                  bg="linear-gradient(0.4turn, #44ee88be, #3e7929f7)"
                   color="white"
                   cursor="pointer"
                   p={1}
@@ -390,7 +389,7 @@ export default function Navbar() {
                   mb={2}
                   fontSize="lg"
                   _hover={{ textDecoration: "underline" }}
-                  bg={colorMode === "dark" ? "gray.800" : "gray.400"}
+                  bg="linear-gradient(0.4turn, #44ee88be, #3e7929f7)"
                   color="white"
                   cursor="pointer"
                   p={1}
@@ -407,7 +406,7 @@ export default function Navbar() {
                   _hover={{
                     textDecoration: "underline",
                   }}
-                  bg={colorMode === "dark" ? "gray.800" : "gray.400"}
+                  bg="linear-gradient(0.4turn, #44ee88be, #3e7929f7)"
                   color="white"
                   cursor="pointer"
                   p={1}
