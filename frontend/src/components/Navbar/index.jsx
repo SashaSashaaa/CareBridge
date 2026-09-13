@@ -181,7 +181,7 @@ export default function Navbar() {
                 mt={2}
                 mb={2}
                 _hover={{ textDecoration: "underline" }}
-                bg={colorMode === "dark" ? "gray.800" : "gray.400"}
+                bg={colorMode === "dark" ? "#3e7929" : "#639C50"}
                 color="white"
                 p={1}
                 borderRadius="5px"
@@ -195,7 +195,7 @@ export default function Navbar() {
                 mt={2}
                 mb={2}
                 _hover={{ textDecoration: "underline" }}
-                bg={colorMode === "dark" ? "gray.800" : "gray.400"}
+                bg={colorMode === "dark" ? "#3e7929" : "#639C50"}
                 color="white"
                 p={1}
                 borderRadius="5px"
