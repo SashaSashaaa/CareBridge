@@ -210,7 +210,7 @@ export default function MainPage() {
               </Badge>
 
               <Heading
-                fontSize={["2xl", "3xl", "6xl"]}
+                fontSize={["2xl", "3xl", "5xl"]}
                 fontWeight="950"
                 lineHeight="1.04"
                 maxW="680px"

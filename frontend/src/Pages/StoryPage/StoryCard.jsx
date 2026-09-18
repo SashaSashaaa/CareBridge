@@ -66,7 +66,7 @@ export default function StoryCard({ data: story }) {
       w="100%"
       minW={0}
       _hover={{
-        bg: colorMode === "dark" ? "gray.900" : "gray.200",
+        bg: colorMode === "dark" ? "gray.900" : "gray.50",
         transform: "translateY(-4px)",
       }}
       p={4}

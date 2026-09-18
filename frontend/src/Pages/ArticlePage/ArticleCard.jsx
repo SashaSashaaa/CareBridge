@@ -19,11 +19,12 @@ export default function ArticleCard({ data, showStatus = false }) {
   return (
     <Box
       w={300}
+      h={400}
       onClick={data.moderated ? () => navigate(`/articles/${data.id}`) : undefined}
       bg={colorMode === "dark" ? "gray.800" : "gray.100"}
       transition="0.4s"
       _hover={{
-        bg: colorMode === "dark" ? "gray.900" : "gray.200",
+        bg: colorMode === "dark" ? "gray.900" : "gray.50",
         transform: "translateY(-4px)",
       }}
       p={4}

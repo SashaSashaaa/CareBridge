@@ -19,6 +19,7 @@ export default function VolunteerCard({ data, showStatus = false }) {
   return (
     <Box
       w={300}
+      h={400}
       onClick={data.moderated ? () => navigate(`/volunteers/${data.id}`) : undefined}
       bg={
         colorMode === "dark"
@@ -31,7 +32,7 @@ export default function VolunteerCard({ data, showStatus = false }) {
       }
       transition="0.4s"
       _hover={{
-        bg: colorMode === "dark" ? "gray.900" : "gray.200",
+        bg: colorMode === "dark" ? "gray.900" : "gray.50",
         transform: "translateY(-4px)",
       }}
       p={4}

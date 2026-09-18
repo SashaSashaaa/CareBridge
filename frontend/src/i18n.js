@@ -464,6 +464,18 @@ const resources = {
       likes: "Лайки",
       edit: "Редагувати",
       delete: "Видалити",
+
+      required_field: "Обов'язкове поле",
+      min_username: "Логін має містити мінімум 3 символи",
+      invalid_email: "Невірний формат email",
+      min_firstname: "Ім'я має містити мінімум 2 символи",
+      min_lastname: "Прізвище має містити мінімум 2 символи",
+      min_password: "Мінімум 8 символів",
+      passwords_mismatch: "Паролі не співпадають",
+      register_success: "Реєстрація успішна",
+      register_error: "Реєстрація або вхід не вдалися",
+
+      login_error: "Невірний логін або пароль",
     },
   },
   en: {
@@ -924,6 +936,17 @@ const resources = {
       likes: "Likes",
       edit: "Edit",
       delete: "Delete",
+
+      required_field: "Required field",
+      min_username: "Username must contain at least 3 characters",
+      invalid_email: "Invalid email format",
+      min_firstname: "First name must contain at least 2 characters",
+      min_lastname: "Last name must contain at least 2 characters",
+      min_password: "Minimum 8 characters",
+      passwords_mismatch: "Passwords do not match",
+      register_success: "Registration successful",
+      register_error: "Registration or login failed",
+      login_error: "Invalid username or password",
     },
   },
 };
