@@ -775,7 +775,7 @@ export default function MainPage() {
               px={4}
               py={2}
             >
-              CareBridge
+               CareBridge
             </Badge>
 
             <Heading fontSize={{ base: "3xl", md: "5xl" }} fontWeight="950">
