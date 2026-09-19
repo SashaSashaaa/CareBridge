@@ -63,7 +63,7 @@ export default function StoryCard({ data: story }) {
     <Box
       bg={colorMode === "dark" ? "gray.800" : "gray.100"}
       transition="0.4s"
-      w="100%"
+      w="80%"
       minW={0}
       _hover={{
         bg: colorMode === "dark" ? "gray.900" : "gray.50",
