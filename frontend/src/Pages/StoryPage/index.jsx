@@ -59,10 +59,10 @@ export default function StoryPage() {
 
       <Box mt={6} mb={20} textAlign="center">
         <Box textAlign="center" mt={6} mb={4}>
-          <Heading color={colorMode === "dark" ? "white" : "gray.800"}>
+          <Heading color={colorMode === "dark" ? "white" : "gray.800"} fontSize={{ base: "24px", md: "28px" }} fontWeight="bold">
             {t("storyPageTitle")}
           </Heading>
-          <Text color={colorMode === "dark" ? "gray.300" : "gray.600"} mt={2}>
+          <Text color={colorMode === "dark" ? "gray.300" : "gray.600"} mt={2} fontSize={{ base: "18px", md: "20px" }}>
             {t("storyPageText")}
           </Text>
         </Box>
