@@ -43,3 +43,22 @@ else
     echo "⚠️  сайт віддає HTTP $CODE — перевірте: journalctl -u carebridge -n 30"
     exit 1
 fi
+
+# --- Попередження про застарілий фронтенд -----------------------------------
+# Цей скрипт оновлює ЛИШЕ бекенд. React збирається на Mac і приїжджає rsync-ом,
+# тому зміни у frontend/ самі тут не з'являться. Порівнюємо час збірки з часом
+# останнього коміту, що чіпав фронтенд, і голосно попереджаємо про розбіжність.
+
+FRONT_COMMIT=$(sudo -u carebridge git -C "$APP" log -1 --format=%ct -- \
+    frontend/src frontend/public frontend/index.html frontend/package.json 2>/dev/null || echo 0)
+DIST_BUILT=$(stat -c %Y "$APP/frontend/dist/index.html" 2>/dev/null || echo 0)
+
+if [ "$FRONT_COMMIT" -gt "$DIST_BUILT" ]; then
+    echo
+    echo "⚠️  УВАГА: фронтенд на сервері застарів"
+    echo "   Останній коміт із змінами React: $(date -d "@$FRONT_COMMIT" '+%Y-%m-%d %H:%M')"
+    echo "   Збірка, яку віддає nginx:        $(date -d "@$DIST_BUILT" '+%Y-%m-%d %H:%M')"
+    echo
+    echo "   Цей скрипт React не збирає. Виконайте НА MAC:"
+    echo "       bash ~/Documents/Projects/Competition/CareBridge/deploy/release.sh"
+fi
