@@ -78,7 +78,15 @@ export default function VolunteerPage() {
         {t("thisSiteEtc")}
       </Text> */}
 
-      <Box mt={6} mb={8} textAlign="center">
+      <Box mt={6} mb={20} textAlign="center">
+        <Box textAlign="center" mt={6} mb={4}>
+          <Heading color={colorMode === "dark" ? "white" : "gray.800"}>
+            {t("volunteerPageTitle")}
+          </Heading>
+          <Text color={colorMode === "dark" ? "gray.300" : "gray.600"} mt={2}>
+            {t("volunteerPageText")}
+          </Text>
+        </Box>
         <InputGroup
           // w={{ base: "92%", sm: "460px" }}
           mx="auto"
@@ -271,15 +279,6 @@ export default function VolunteerPage() {
             </Flex>
           )}
         </Flex>
-      </Box>
-
-      <Box textAlign="center" mt={6} mb={4}>
-        <Heading color={colorMode === "dark" ? "white" : "gray.800"}>
-          {t("volunteerPageTitle")}
-        </Heading>
-        <Text color={colorMode === "dark" ? "gray.300" : "gray.600"} mt={2}>
-          {t("volunteerPageText")}
-        </Text>
       </Box>
 
       <Flex gap="10px" wrap="wrap" justify="center" align="center" mb={6}>

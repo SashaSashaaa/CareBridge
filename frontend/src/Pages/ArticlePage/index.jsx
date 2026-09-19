@@ -51,7 +51,15 @@ export default function ArticlePage() {
         {t("thisSiteEtc")}
       </Text> */}
 
-      <Box mt={6} mb={8} textAlign="center">
+      <Box mt={6} mb={20} textAlign="center">
+        <Box textAlign="center" mt={6} mb={4}>
+          <Heading color={colorMode === "dark" ? "white" : "gray.800"}>
+            {t("articlePageTitle")}
+          </Heading>
+          <Text color={colorMode === "dark" ? "gray.300" : "gray.600"} mt={2}>
+            {t("articlePageText")}
+          </Text>
+        </Box>
         <InputGroup
           mx="auto"
           h="58px"
@@ -139,15 +147,6 @@ export default function ArticlePage() {
             }}
           />
         </InputGroup>
-      </Box>
-
-      <Box textAlign="center" mt={6} mb={4}>
-        <Heading color={colorMode === "dark" ? "white" : "gray.800"}>
-          {t("articlePageTitle")}
-        </Heading>
-        <Text color={colorMode === "dark" ? "gray.300" : "gray.600"} mt={2}>
-          {t("articlePageText")}
-        </Text>
       </Box>
 
       {isLoading && (

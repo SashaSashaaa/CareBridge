@@ -57,7 +57,15 @@ export default function StoryPage() {
         {t("thisSiteEtc")}
       </Text> */}
 
-      <Box mt={6} mb={8} textAlign="center">
+      <Box mt={6} mb={20} textAlign="center">
+        <Box textAlign="center" mt={6} mb={4}>
+          <Heading color={colorMode === "dark" ? "white" : "gray.800"}>
+            {t("storyPageTitle")}
+          </Heading>
+          <Text color={colorMode === "dark" ? "gray.300" : "gray.600"} mt={2}>
+            {t("storyPageText")}
+          </Text>
+        </Box>
         <InputGroup
           mx="auto"
           h="58px"
@@ -144,15 +152,6 @@ export default function StoryPage() {
             }}
           />
         </InputGroup>
-      </Box>
-
-      <Box textAlign="center" mt={6} mb={4}>
-        <Heading color={colorMode === "dark" ? "white" : "gray.800"}>
-          {t("storyPageTitle")}
-        </Heading>
-        <Text color={colorMode === "dark" ? "gray.300" : "gray.600"} mt={2}>
-          {t("storyPageText")}
-        </Text>
       </Box>
 
       <Flex gap="10px" wrap="wrap" justify="center" align="center" mb={6}>
